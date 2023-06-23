@@ -27,7 +27,7 @@ export class SprintFormComponent implements OnInit {
 
     this.sprintForm = this._fb.group({
 
-      storyName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      storyName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
       storyPoint: ['', [Validators.required, Validators.min(1), Validators.max(10)]],
     
     })
