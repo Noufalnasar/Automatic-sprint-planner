@@ -1,0 +1,60 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <form [formGroup]="sprintForm">
+        <div class="row story-form">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                        <h3 class="text-center mt-3">Create Your Story</h3>
+                            <input type="text" placeholder="Story Name" formControlName="storyName"  class="form-control mt-4 mb-3">
+                            <div *ngIf="sprintForm.controls['storyName'].errors && (sprintForm.controls['storyName'].touched  ||  submitted) ">
+    
+                                <div *ngIf="this.sprintForm.controls['storyName'].errors['required']">
+                                    <p class="text-danger">*This field is required</p>
+                                </div>
+                                <div *ngIf="this.sprintForm.controls['storyName'].errors['minlength']">
+                                    <p class="text-danger">*Minimum Length 3 is required</p>
+                                </div>
+            
+                                <div *ngIf="this.sprintForm.controls['storyName'].errors['maxlength']">
+                                    <p class="text-danger">*Only 15 letters Required</p>
+            
+                                </div>
+                                </div>
+                            <input type="number" placeholder="Story Point" formControlName="storyPoint"  class="form-control mb-4">
+                            
+                            <div *ngIf="sprintForm.controls['storyPoint'].errors && (this.sprintForm.controls['storyPoint'].touched  ||  submitted )">
+    
+                                <div *ngIf="sprintForm.controls['storyPoint'].errors['required']">
+                                    <p class="text-danger">*This field is required</p>
+                                </div>
+                                <div *ngIf="sprintForm.controls['storyPoint'].errors['min']">
+                                    <p class="text-danger">*minimum required point is 1</p>
+                                </div>
+            
+                                <div *ngIf="sprintForm.controls['storyPoint'].errors['max']">
+                                    <p class="text-danger">*maximum Point is 10</p>
+            
+                                </div>
+            
+            
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-success mb-3"  (click)="addStory()">Add Story</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-3"></div>
+            
+        </div>
+    </form>
+
+ 
+</div>

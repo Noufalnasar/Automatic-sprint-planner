@@ -1,0 +1,49 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-6 col-sm-12">
+      <div class="container">
+        <app-auto-selecting-form [storyDetails]="storyDetails" (autoSelectedStories)="autoSelectedStories($event)" (backFlag)="backTo($event)"></app-auto-selecting-form>
+
+      </div>
+
+    </div>
+    <div class="col-6 col-md-6 col-sm-12">
+      <div class="container">
+        <div class="row" *ngIf="!isSelectedStoriesList">
+          <h5 class="text-center mb-5">Stories List</h5>
+          <div *ngFor="let story of storyDetails" class="col-4 col-md-4 col-sm-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                  <h3 class="text-center mb-2 mt-2">{{story.storyName}}</h3>
+                      <h5 class="text-center">{{story.storyPoint}}</h5>
+                    </div>
+                    </div>
+          </div>
+          <div *ngIf="!storyDetails.length">
+          <p class="text-center text-danger fw-bold">No Stories Created</p>
+
+          </div>
+        </div>
+        <div class="row" *ngIf="isSelectedStoriesList">
+          <h5 class="text-center mb-5">Selected Stories</h5>
+          <div *ngFor="let selStory of selectedStories" class="col-4  col-md-4 col-sm-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                  <h3 class="text-center mb-2 mt-2">{{selStory.storyName}}</h3>
+                      <h5 class="text-center">{{selStory.storyPoint}}</h5>
+                    </div>
+                    </div>
+          </div>
+          <div *ngIf="!selectedStories.length">
+            <p class="text-center text-danger fw-bold">No Stories Selected</p>
+  
+            </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+
+</div>
