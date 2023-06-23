@@ -73,13 +73,20 @@ export class AutoSelectingFormComponent implements OnInit{
 
   }
   clearAllSelected(){
-    this.selectedStories=[]
+    if(this.selectedStories.length){
+    alert("Are you sure want to delete selected stories ?")
+     this.selectedStories=[]
     this.autoSelectedStories.emit(this.selectedStories)
+    }
+    
   }
   clearAllStories(){
-localStorage.clear()
-alert("Are you sure want to delete all stories ?")
-location.reload()
+    if(this.storyDetails.length){
+      alert("Are you sure want to delete all stories ?")
+      localStorage.clear()
+      location.reload()
+    }
+
   }
   toBack(){
    this.backFlag.emit(this.isAutoSelect)
